@@ -1,7 +1,7 @@
 * {
   font-family: 'Alegreya', cursive;
-  font-size: large;
-  text-align: center
+  font-size: small;
+  /* text-align: center */
 }
 
 .create-form {
@@ -16,3 +16,12 @@
 .card-body {
   text-align: center;
 }
+
+.card-img-top {
+   text-align: left;
+}
+
+ul {
+  list-style: none;
+}
+

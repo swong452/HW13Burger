@@ -1,14 +1,14 @@
 {{!-- jumbotron container --}}
 <div class="container">
     <div class="jumbotron">
-        <h1 class="display">Samsons' Burgers</h1>
+        <h1 class="display">Gandalf's Burgers</h1>
         <h3>Help us create our future menu by adding your idea below:</h3>
     </div>
 
     {{!-- <h1> Burgers </h1> --}}
-    <div class="col-md-4"></div>
-    <h2 class = "card-img-top">Burger Available on the menu:</h2>
-    <ol>
+    <div class="col-md-4 card-img-top">
+    {{!-- <h2 class = "card-img-top">Burger Available:</h2> --}}
+        <h2>Burger Avail:</h2>
         <ul>
             {{#each burger}}
               {{#unless devour}}
@@ -16,18 +16,19 @@
               {{/unless}}
             {{/each}}
         </ul>
-    </ol>
+    </div>
 
     {{!-- Menu centerpiece --}}
-    <div class="col-md-4"></div>
-        <h2>Add a Burger to our menu:</h2>
-        <img src="/assets/css/Classic Burger.jpg" class="card-body" id="menu">
+    <div class="col-md-4 card-body">
+        <h2 class = "card-body">Add a Burger:</h2>
+        <img src="/assets/css/GandalfBurger.jpg" id="menu">
           <form class="create-form">
               <div class="form-group">
                 <label for="addBurger">Burger Name:</label>
-                <input type="text" id="addBurger" name="name">
+                <input type="text" size=20 id="addBurger" name="name">
+                <button type="submit" class="btn btn-info">Add Burger!</button>
               </div>
-              <button type="submit" class="btn btn-info">Add Burger!</button>
+              
           </form>
     </div>
 
@@ -48,7 +49,7 @@
     </ol>
   </div>
 
-
+ </div>
 {{!-- 
     <h2>Burger In progress being Devoured</h2>
 
