@@ -5,10 +5,13 @@ $(document).ready(function () {
     event.preventDefault();
     console.log("change-devour listener");
     var id = $(this).data("id");
+
+    // devour state value, is base on data-devour value in index.handlebars
     //devourState returns true/false value, should this burger be devoured
     // return true if user clicked on devour button
     var devourState = $(this).data("devour");
 
+    // devour is a field of each burger record
     var eatThisBurger = {
       devour: devourState
     };
@@ -31,11 +34,11 @@ $(document).ready(function () {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
+    // on index.handlebars, under create-form, id = addBurger
+    // and the value in the user input, can be extracted using .val
+    // name here has to match the SQL Table burger field name "name"
     var newBurger = {
-      name: $("#ca").val().trim()
-      // JQuery syntax. for name = sleepy
-      // Radio button of name = sleepy, test to see which button is checked. 
-      //sleepy: $("[name=sleepy]:checked").val().trim()
+      name: $("#addBurger").val().trim()
     };
 
     console.log("Asset/burger submit , before ajax POST", newBurger);

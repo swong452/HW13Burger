@@ -11,7 +11,7 @@ var burger = {
   },
   // The variables cols and vals are arrays.
   create: function(cols, vals, cb) {
-    console.log("inside burger.js, before orm.create");
+    console.log("inside burger.js, before orm.create, column name is :", cols);
     orm.create("burger", cols, vals, function(res) {
       console.log("inside burger.js, After orm.create, res value", res);
       cb(res);

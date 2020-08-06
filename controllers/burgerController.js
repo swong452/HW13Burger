@@ -21,6 +21,8 @@ router.get("/", function (req, res) {
 
 router.post("/api/burgers", function (req, res) {
     console.log("Inside burgerController, before burger.create");
+    // [name] is the SQL Table 'burger' field name
+    //burger.create(["name"], [req.body.name], function (result) {
     burger.create(["name"], [req.body.name], function (result) {
         console.log("inside burgerController, burger.create Calling , before res.json");
         // Send back the ID of the new quote
