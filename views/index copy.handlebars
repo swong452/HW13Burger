@@ -1,0 +1,39 @@
+{{!-- jumbotron container --}}
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display">Samsons' Burgers</h1>
+    <h3>Help us create our future menu by adding your idea below:</h3>
+  </div>
+
+{{!-- <h1> Burgers </h1> --}}
+
+<h2>Burger To be Devoured</h2>
+
+<ul>
+  {{#each burger}}
+    {{#unless devour}}
+      {{> burger/burger-block devour = true}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>Burger In progress being Devoured</h2>
+
+<ul>
+  {{#each burger}}
+    {{#if devour}}
+        {{> burger/burger-block devour = false}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>Add a Burger</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="addBurger">Burger Name:</label>
+    <input type="text" id="addBurger" name="name">
+  </div>
+
+  <button type="submit">Add Burger </button>
+</form>
