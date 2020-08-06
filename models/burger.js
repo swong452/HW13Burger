@@ -17,8 +17,8 @@ var burger = {
       cb(res);
     });
   },
-  update: function(objColVals,cb) {
-    console.log("Inside burger.js, before calling orm.update");
+  update: function(objColVals,condition, cb) {
+    console.log("Inside burger.js, before calling orm.update, pass in burger objColVals", objColVals );
     orm.update("burger", objColVals, condition, function(res) {
       console.log("Inside burger.js, after orm.update");
       cb(res);

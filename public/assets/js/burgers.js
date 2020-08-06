@@ -1,12 +1,16 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
-$(function () {
+//$(function () {
+$(document).ready(function () {
   $(".change-devour").on("click", function (event) {
+    event.preventDefault();
     console.log("change-devour listener");
     var id = $(this).data("id");
-    var devourBurger = $(this).data("devourBurger");
+    //devourState returns true/false value, should this burger be devoured
+    // return true if user clicked on devour button
+    var devourState = $(this).data("devour");
 
     var eatThisBurger = {
-      burger: devourBurger
+      devour: devourState
     };
 
     // Send the PUT request.
@@ -22,6 +26,7 @@ $(function () {
     );
   });
 
+  // new Burger listener
   $(".create-form").on("submit", function (event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
@@ -47,3 +52,6 @@ $(function () {
     );
   });
 });
+
+
+// Devoured burger
