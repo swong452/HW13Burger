@@ -89,9 +89,24 @@ var orm = {
         throw err;
       }
 
-      console.log("Query string result is: ", result)
+      
       cb(result);
     });
+  },
+
+  // Delete the devoured Burger
+  delete: function (table, condition, cb) {
+    var queryString = "DELETE FROM " + table;
+    queryString += " WHERE ";
+    queryString += condition;
+    console.log("Query string is: ", queryString);
+    connection.query(queryString, function (err, result) {
+      if (err) {
+        throw err;
+      }
+
+      cb(result);
+    })
   }
 };
 

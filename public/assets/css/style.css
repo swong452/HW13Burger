@@ -1,7 +1,7 @@
 * {
   font-family: 'Alegreya', cursive;
   font-size: small;
-  /* text-align: center */
+  text-align: center 
 }
 
 .create-form {
@@ -18,7 +18,7 @@
 }
 
 .card-img-top {
-   text-align: left;
+   text-align: center;
 }
 
 ul {

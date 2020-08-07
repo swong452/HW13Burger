@@ -2,28 +2,38 @@
 var orm = require("../config/orm.js");
 
 var burger = {
-  all: function(cb1) {
+  all: function (cb1) {
     //console.log("Inside /model/burger.js - pass in table name "burger" and function cb1);
-    orm.all("burger", function(res) {
+    orm.all("burger", function (res) {
       console.log("inside burger.js, orm.all function");
       cb1(res);
     });
   },
   // The variables cols and vals are arrays.
-  create: function(cols, vals, cb) {
+  create: function (cols, vals, cb) {
     console.log("inside burger.js, before orm.create, column name is :", cols);
-    orm.create("burger", cols, vals, function(res) {
+    orm.create("burger", cols, vals, function (res) {
       console.log("inside burger.js, After orm.create, res value", res);
       cb(res);
     });
   },
-  update: function(objColVals,condition, cb) {
-    console.log("Inside burger.js, before calling orm.update, pass in burger objColVals", objColVals );
-    orm.update("burger", objColVals, condition, function(res) {
+  update: function (objColVals, condition, cb) {
+    console.log("Inside burger.js, before calling orm.update, pass in burger objColVals", objColVals);
+    orm.update("burger", objColVals, condition, function (res) {
       console.log("Inside burger.js, after orm.update");
       cb(res);
     });
-  }
+  },
+  // The variables cols and vals are arrays.
+  delete: function (condition, cb) {
+    console.log("inside burger.js, before orm.delete");
+    orm.delete("burger", condition, function (res) {
+      console.log("inside burger.js, After orm.delete, res value", res);
+      cb(res);
+    });
+  },
+
+
 };
 
 // Export the database functions for the controller (catsController.js).

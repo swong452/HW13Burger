@@ -54,7 +54,26 @@ $(document).ready(function () {
       }
     );
   });
+
+
+// Delete burger
+$(".delete-devour").on("click", function (event) {
+  event.preventDefault();
+  console.log("Delete-devour listener");
+  var id = $(this).data("id");
+
+  // Send Delete request.
+  $.ajax("/api/burgers/" + id, {
+    type: "DELETE"
+  }).then(
+    function () {
+      console.log("Delete This burger");
+      // Reload the page to get the updated list
+      location.reload();
+    }
+  );
 });
 
 
-// Devoured burger
+
+});
