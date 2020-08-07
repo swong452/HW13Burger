@@ -8,7 +8,7 @@
     {{!-- <h1> Burgers </h1> --}}
     <div class="col-md-4 card-img-top">
     {{!-- <h2 class = "card-img-top">Burger Available:</h2> --}}
-        <h2>Burger Avail:</h2>
+        <h2>Burgers Available:</h2>
         <ul>
             {{#each burger}}
               {{#unless devour}}
@@ -42,7 +42,7 @@
 {{!-- List of burgers added --}}
   <div class="col-md-4">
     <h2 class="card-img-top">Burgers Devoured: </h2>
-    <ol>
+    <ul>
       {{#each burger}}
         {{#if devour}}
             <li>
@@ -52,7 +52,7 @@
             </li>
         {{/if}}
       {{/each}}
-    </ol>
+    </ul>
   </div>
 
  </div>

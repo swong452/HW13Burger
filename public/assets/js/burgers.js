@@ -1,5 +1,4 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
-//$(function () {
 $(document).ready(function () {
   $(".change-devour").on("click", function (event) {
     event.preventDefault();
@@ -22,7 +21,6 @@ $(document).ready(function () {
       data: eatThisBurger
     }).then(
       function () {
-        console.log("Eat This burger", eatThisBurger);
         // Reload the page to get the updated list
         location.reload();
       }
@@ -41,14 +39,12 @@ $(document).ready(function () {
       name: $("#addBurger").val().trim()
     };
 
-    console.log("Asset/burger submit , before ajax POST", newBurger);
     // Send the POST request.
     $.ajax("/api/burgers", {
       type: "POST",
       data: newBurger
     }).then(
       function () {
-        console.log("created new Burger");
         // Reload the page to get the updated list
         location.reload();
       }
@@ -56,24 +52,19 @@ $(document).ready(function () {
   });
 
 
-// Delete burger
-$(".delete-devour").on("click", function (event) {
-  event.preventDefault();
-  console.log("Delete-devour listener");
-  var id = $(this).data("id");
+  // Delete burger
+  $(".delete-devour").on("click", function (event) {
+    event.preventDefault();
+    var id = $(this).data("id");
 
-  // Send Delete request.
-  $.ajax("/api/burgers/" + id, {
-    type: "DELETE"
-  }).then(
-    function () {
-      console.log("Delete This burger");
-      // Reload the page to get the updated list
-      location.reload();
-    }
-  );
-});
-
-
-
+    // Send Delete request.
+    $.ajax("/api/burgers/" + id, {
+      type: "DELETE"
+    }).then(
+      function () {
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
 });

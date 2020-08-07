@@ -5,37 +5,37 @@ var router = express.Router();
 //Import the model (burger.js) to use its database functions
 var burger = require("../models/burger.js");
 
-// Create all our routes and setup logic within those routes 
-// where required 
+// Create all our routes and setup logic within those routes where required 
 
+// Display all burger, base on logic on index handlebars
 router.get("/", function (req, res) {
     burger.all(function (data) {
-        console.log("inside burgerController");
+        //console.log("inside burgerController");
         var hbsObject = {
             burger: data
         };
-        console.log(hbsObject);
+        //console.log(hbsObject);
         res.render("index", hbsObject);
     });
 });
 
+// Add new burger 
 router.post("/api/burgers", function (req, res) {
-    console.log("Inside burgerController, before burger.create");
     // [name] is the SQL Table 'burger' field name
     //burger.create(["name"], [req.body.name], function (result) {
     burger.create(["name"], [req.body.name], function (result) {
-        console.log("inside burgerController, burger.create Calling , before res.json");
         // Send back the ID of the new quote
         res.json({ id: result.insertId });
     });
 });
 
+
+// Update the burgur devour DB record status - if a burger has devour status  =1,
+// during get rendering; will place the burger under "Available" or "Devoured " base
+// on this devour status. 
 router.put("/api/burgers/:id", function (req, res) {
     var condition = "id = " + req.params.id;
     // condition is the ID of the item, defined on assets/js/burger.js listenenr
-
-    console.log("inside burgerController.js, Condition", condition);
-
     burger.update(
         {
             devour: req.body.devour
@@ -56,9 +56,6 @@ router.put("/api/burgers/:id", function (req, res) {
 // Delete Route
 router.delete("/api/burgers/:id", function (req, res) {
     var condition = "id = " + req.params.id;
-    // condition is the ID of the item, defined on assets/js/burger.js listenenr
-
-    console.log("inside burgerController.js to delete, Condition", condition);
     burger.delete(condition, function (result) {
             if (result.affectedRows === 0) {
                 // If no rows were changed, then the ID must not exist, so 404
