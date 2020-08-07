@@ -12,6 +12,12 @@
         <ul>
             {{#each burger}}
               {{#unless devour}}
+               {{!-- devoured state. On the non devour block, this button
+               set devour = true; so when someone click on it
+               that means someone clicked it, and clicking it means
+               set the devour state to true. in the index view, burger
+               who has the devour state = true will be displayed
+               under another segment below which #IF devour = true  --}}
                 {{> burger/burger-block devour = true}}
               {{/unless}}
             {{/each}}
@@ -40,9 +46,8 @@
       {{#each burger}}
         {{#if devour}}
             <li>
-            {{!-- devoured state helps to show, 
-            if this item should appear on the list or not.  --}}
-            {{> burger/burger-block devour = false}}
+            {{!-- Display the name of burger --}}
+            {{name}}
             </li>
         {{/if}}
       {{/each}}
@@ -50,27 +55,3 @@
   </div>
 
  </div>
-{{!-- 
-    <h2>Burger In progress being Devoured</h2>
-
-    <ul>
-        {{#each burger}}
-        {{#if devour}}
-        {{> burger/burger-block devour = false}}
-        {{/if}}
-        {{/each}}
-    </ul>
---}}
-
-    {{!-- 
-  <h2>Add a Burger</h2>
-    <form class="create-form">
-
-        <div class="form-group">
-            <label for="addBurger">Burger Name:</label>
-            <input type="text" id="addBurger" name="name">
-        </div>
-
-        <button type="submit">Add Burger </button>
-    </form>
- --}}
