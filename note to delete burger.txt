@@ -1,9 +1,0 @@
-Creating app... done, ⬢ fierce-hollows-49099
-https://fierce-hollows-49099.herokuapp.com/ | https://git.heroku.com/fierce-hollows-49099.git
-
-places Delete Changed
-0. updated connection.js to use back local
-   update style css to center the test
-1. added burger-delete.handlebars
-2. index.handlebars: on the Devoured Burger section, instead of just {{name}}, use
-   {{> burger/burger-delete delete = true}}
